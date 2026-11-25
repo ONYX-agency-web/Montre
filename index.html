@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#172820">
+<title>Montre | Часовая мастерская, Москва</title>
+<meta name="description" content="Montre: мастерская по ремонту и обслуживанию наручных часов в Москве. Диагностика, ремонт механизма, замена стекла.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Montre. Мастерская по ремонту часов">
+<meta property="og:description" content="Диагностика, ремонт и обслуживание наручных часов в Москве.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14.500' fill='%23172820' stroke='%23A88B62' stroke-width='2'/%3E%3Cpath d='M16 4.500v3M16 24.500v3M4.500 16h3M24.500 16h3' stroke='%23A88B62' stroke-width='1.500' stroke-linecap='round'/%3E%3Cpath d='M16 16V9.500M16 16l5 3' stroke='%23F1EADC' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='1.800' fill='%23A88B62'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="preload" as="image" href="images/rolex-president.avif" type="image/avif" fetchpriority="high">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --green:#172820;--paper:#F1EEE6;--gold:#A88B62;--alt:#d4d6d3;
+  --muted:#545f5a;--line:rgba(22,48,43,.18);--line-l:rgba(224,224,224,.18);
+  --soft:rgba(224,224,224,.7);--faint:rgba(224,224,224,.6);
+  --serif:'Cormorant Garamond',Georgia,serif;--gutter:32px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--green);font:300 15px/1.7 'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0}
+h1,h2{line-height:1;letter-spacing:-.01em}
+h1{font-size:clamp(54px,7.4vw,112px)}
+h2{font-size:clamp(40px,5vw,72px)}
+em{font-style:italic;color:var(--gold)}
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+
+.wrap{width:min(1200px,calc(100% - 2*var(--gutter)));margin:auto}
+section{padding:128px 0}
+.dark{background:var(--green);color:var(--paper)}
+.alt{background:var(--alt)}
+.tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0 0 28px}
+
+.btn{display:inline-block;padding:16px 28px;border:1px solid var(--gold);font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:none;color:inherit;cursor:pointer;transition:background .3s,color .3s}
+.btn:focus-visible{background:var(--gold);color:var(--green);outline:none}
+
+/* Header */
+.bar{height:88px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid var(--line-l);position:relative}
+.brand{font-family:var(--serif);font-size:28px;letter-spacing:.3em}
+.brand--sm{font-size:20px}
+.nav{display:flex;gap:40px;font-size:12px;letter-spacing:.06em;color:var(--soft)}
+.bar-actions{display:flex;align-items:center;gap:20px;justify-self:end}
+.menu-btn{display:none;min-height:44px;padding:0 0 0 12px;background:none;border:0;color:var(--paper);font-size:10px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+
+/* First screen */
+.hero-section{padding:0}
+.hero{display:grid;grid-template-columns:.92fr 1.08fr;align-items:center;gap:clamp(40px,7vw,100px);min-height:min(calc(100vh - 88px),840px);padding:64px 0}
+.hero-text{max-width:360px;margin:32px 0 36px;color:var(--soft)}
+.facts{display:flex;gap:40px;margin-top:64px;padding-top:24px;border-top:1px solid var(--line-l);font-size:11px;color:var(--faint)}
+.facts b{display:block;font:400 34px/1.1 var(--serif);color:var(--gold)}
+
+/* Photo frames: equal padding on every side, height follows the photo's own ratio */
+.shot{--pad:clamp(18px,2.6vw,32px);position:relative;margin:0;overflow:hidden;padding:var(--pad);width:min(100%,560px);background:radial-gradient(ellipse at 50% 38%,#f8f5ee,#ddd6c9 78%)}
+.shot.dk{background:radial-gradient(ellipse at 50% 38%,rgba(241,238,230,.12),transparent 72%),var(--green)}
+.shot::after{content:"";position:absolute;inset:calc(var(--pad)*.4);border:1px solid rgba(168,139,98,.45);pointer-events:none}
+.shot.dk::after{inset:0}
+.shot img{position:relative;z-index:1;width:100%;height:auto;filter:drop-shadow(0 18px 24px rgba(0,0,0,.16));transition:filter .8s cubic-bezier(.2,.7,.2,1)}
+.shot.dk img{filter:drop-shadow(0 22px 30px rgba(0,0,0,.38))}
+.hero-shot,.about-shot{justify-self:end;align-self:center}
+.patek-shot{justify-self:start;align-self:center}
+
+/* About */
+.intro,.why{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center}
+.lead{font:400 clamp(24px,2.4vw,32px)/1.35 var(--serif);margin:36px 0 24px}
+.fine{max-width:380px;margin:0;color:var(--muted)}
+
+/* Rows: services and rules */
+.rows{list-style:none;margin:56px 0 0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:56px 1fr auto;gap:24px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)}
+.row .num{font:italic 18px var(--serif);color:var(--gold)}
+.row .name{font:400 clamp(22px,2.4vw,30px)/1.2 var(--serif)}
+.row .cap{margin:4px 0 0;font-size:12px;color:var(--muted)}
+.row .price{font:400 22px var(--serif);white-space:nowrap}
+.note{margin:24px 0 0;font-size:12px;color:var(--muted)}
+.why .rows,.why .row{border-color:var(--line-l)}
+.why .row{grid-template-columns:56px 1fr}
+.why .row .name{font-size:24px}
+.why .row .cap{max-width:380px;color:var(--faint)}
+
+/* Booking form */
+.booking{display:grid;grid-template-columns:1fr .8fr;gap:96px}
+.copy{max-width:380px;margin:28px 0 0;color:var(--muted)}
+.field{position:relative;margin-bottom:32px}
+label{display:block;margin-bottom:6px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+input{width:100%;padding:12px 0;border:0;border-bottom:1px solid rgba(22,48,43,.35);border-radius:0;background:none;color:var(--green);font-size:16px;outline:none}
+input:focus{border-color:var(--gold);box-shadow:0 1px 0 var(--gold)}
+input::placeholder{color:#667069}
+.phone-wrap{position:relative}
+.phone-wrap input{font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.valid-mark{position:absolute;right:2px;top:50%;width:18px;height:18px;margin-top:-9px;opacity:0;transition:opacity .25s;stroke:var(--gold);fill:none;stroke-width:1.5}
+.is-valid .valid-mark{opacity:1}
+.hint,.err{display:block;margin-top:6px;font-size:11px}
+.hint{color:var(--muted)}
+.err{font-size:12px;color:#8f4a3a}
+.has-error input{border-color:#8f4a3a}
+form .btn{width:100%;background:var(--green);color:var(--paper);border-color:var(--green)}
+.ok-box{display:none;padding:32px;border:1px solid var(--gold)}
+.ok-box h3{font-size:32px;line-height:1.1;margin:0 0 12px}
+.ok-box p{margin:0;color:var(--muted)}
+.is-sent .field,.is-sent .btn{display:none}
+.is-sent .ok-box{display:block}
+
+/* Footer */
+footer{padding:96px 0 36px}
+.contacts{display:grid;grid-template-columns:1fr 1fr;gap:96px;padding-bottom:88px}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:36px 24px;margin:0}
+.details dt{margin-bottom:10px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.details dd{margin:0;color:rgba(224,224,224,.85)}
+.bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:24px;border-top:1px solid var(--line-l);font-size:11px;letter-spacing:.08em;color:var(--faint)}
+.bottom .brand{color:var(--paper)}
+
+/* Mobile call-to-action bar */
+.sticky{display:none}
+
+/* Scroll reveal (only when JS is running) */
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
+.js .reveal.on{opacity:1;transform:none}
+
+@media(hover:hover){
+  .btn:hover{background:var(--gold);color:var(--green)}
+  form .btn:hover{border-color:var(--gold)}
+  .nav a:hover,.details a:hover{color:var(--gold)}
+  .shot:hover img{filter:drop-shadow(0 22px 28px rgba(0,0,0,.22))}
+  .shot.dk:hover img{filter:drop-shadow(0 22px 30px rgba(0,0,0,.38))}
+}
+
+@media(max-width:820px){
+  :root{--gutter:20px}
+  section{padding:80px 0}
+  h1{font-size:clamp(48px,15vw,72px)}
+  .bar{display:flex;justify-content:space-between;height:72px}
+  .bar-actions .btn{display:none}
+  .menu-btn{display:block}
+  .nav{display:none;position:absolute;top:100%;left:calc(-1*var(--gutter));right:calc(-1*var(--gutter));z-index:5;flex-direction:column;gap:22px;padding:28px var(--gutter);border-bottom:1px solid var(--line-l);background:var(--green);font-size:15px}
+  .nav.open{display:flex}
+  .nav a{padding:6px 0}
+  .hero,.intro,.why,.booking,.contacts{grid-template-columns:1fr;gap:40px}
+  .hero{min-height:0;padding:48px 0 56px}
+  .hero-shot,.about-shot,.patek-shot{justify-self:start;align-self:start}
+  .why .shot{order:2}
+  .facts{flex-wrap:wrap;gap:28px;margin-top:40px}
+  .row{grid-template-columns:36px 1fr auto;gap:12px}
+  .why .row{grid-template-columns:36px 1fr}
+  .row .name{font-size:20px}
+  .row .cap{font-size:11px}
+  .row .price{font-size:18px}
+  .btn{min-height:50px}
+  input{min-height:48px}
+  form .btn{padding:18px}
+  footer{padding:72px 0 calc(100px + env(safe-area-inset-bottom))}
+  .contacts{padding-bottom:56px}
+  .details{gap:28px 16px}
+  .sticky{display:block;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:9;padding:16px;background:var(--gold);color:var(--green);text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;visibility:hidden;transform:translateY(160%);transition:transform .35s,visibility 0s .35s}
+  .sticky.show{visibility:visible;transform:none;transition-delay:0s}
+}
+
+@media(max-width:520px){
+  :root{--gutter:16px}
+  section{padding:68px 0}
+  .hero{gap:30px;padding-top:36px}
+  .intro{gap:30px}
+  .facts{gap:22px}
+  .row{grid-template-columns:28px minmax(0,1fr) auto;gap:9px;padding:20px 0}
+  .row .cap{max-width:230px}
+  .row .price{font-size:16px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .shot img{transition:none}
+}
+</style>
+    <style>
+
+    /* ONYX Agency portfolio badge */
+    .onyx-agency-badge {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 9999;
+      width: 112px;
+      min-height: 58px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 12px 9px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1;
+      box-shadow: 0 5px 22px rgba(0, 0, 0, .2);
+      -webkit-font-smoothing: antialiased;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .onyx-agency-badge__wordmark {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -1.25px;
+    }
+    .onyx-agency-badge__registered {
+      display: inline-block;
+      margin-left: 1px;
+      font-size: 7px;
+      line-height: 1;
+      font-weight: 600;
+      vertical-align: top;
+      transform: translateY(-1px);
+    }
+    .onyx-agency-badge__caption {
+      display: block;
+      padding-left: 2px;
+      font-size: 8px;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+    }
+    @media (hover: hover) {
+      .onyx-agency-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 26px rgba(0, 0, 0, .26);
+      }
+    }
+    @media (max-width: 899px) {
+      .onyx-agency-badge {
+        right: 14px;
+        bottom: calc(14px + env(safe-area-inset-bottom));
+        width: 104px;
+        min-height: 54px;
+      }
+      .onyx-agency-badge__wordmark { font-size: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .onyx-agency-badge { transition: none; }
+    }
+    </style>
+</head>
+<body>
+  <a class="onyx-agency-badge" href="#" aria-label="ONYX Agency" onclick="return false">
+    <span class="onyx-agency-badge__wordmark">ONYX<span class="onyx-agency-badge__registered">®</span></span>
+    <span class="onyx-agency-badge__caption">Agency</span>
+  </a>
+
+<header class="dark" id="top">
+<div class="wrap bar">
+<a class="brand" href="#top" aria-label="Montre, главная">MONTRE</a>
+<nav class="nav" id="nav" aria-label="Основная навигация"><a href="#services">Услуги</a><a href="#about">О мастерской</a><a href="#contacts">Контакты</a></nav>
+<div class="bar-actions"><a class="btn" href="#booking">Записаться</a><button class="menu-btn" id="menuBtn" type="button" aria-label="Открыть меню" aria-controls="nav" aria-expanded="false">Меню</button></div>
+</div>
+</header>
+
+<main>
+<section class="dark hero-section" id="hero">
+<div class="wrap hero">
+<div>
+<p class="tag">Часовая мастерская, Москва</p>
+<h1>Часы должны<br>идти <em>точно.</em></h1>
+<p class="hero-text">Ремонтируем и обслуживаем наручные часы. Сначала проверяем механизм. Затем обсуждаем с вами работу и стоимость.</p>
+<a class="btn" href="#booking">Записаться на обслуживание</a>
+<div class="facts"><span><b>7</b>видов работ</span><span><b>от 1 000 ₽</b>диагностика</span></div>
+</div>
+<figure class="shot dk hero-shot"><img src="images/rolex-president.avif" width="1200" height="800" alt="Rolex President из жёлтого золота с бриллиантовым безелем" fetchpriority="high" decoding="async"></figure>
+</div>
+</section>
+
+<section class="wrap intro reveal" id="about">
+<div>
+<p class="tag">О мастерской</p>
+<h2>Сначала разберёмся<br><em>в причине.</em></h2>
+<p class="lead">У каждой модели свой механизм. Мы проверим часы, найдём неисправность и объясним, что можно сделать. Решение о ремонте остаётся за вами.</p>
+<p class="fine">Перед работой осматриваем часы и описываем состояние деталей. Стоимость и сроки согласуем заранее.</p>
+</div>
+<figure class="shot about-shot"><img src="images/rolex-sea-dweller.avif" width="1200" height="800" alt="Rolex Sea-Dweller Deepsea 116660" loading="lazy" decoding="async"></figure>
+</section>
+
+<section class="alt" id="services">
+<div class="wrap">
+<div class="reveal"><p class="tag">Услуги</p><h2>Ремонт и <em>обслуживание</em> часов</h2></div>
+<ul class="rows reveal">
+<li class="row"><span class="num" aria-hidden="true">01</span><div><h3 class="name">Диагностика часов</h3><p class="cap">Проверим ход и основные функции</p></div><span class="price">от 1 000 ₽</span></li>
+<li class="row"><span class="num" aria-hidden="true">02</span><div><h3 class="name">Замена батарейки</h3><p class="cap">Подберём батарейку по модели</p></div><span class="price">от 1 500 ₽</span></li>
+<li class="row"><span class="num" aria-hidden="true">03</span><div><h3 class="name">Замена стекла</h3><p class="cap">Подбор стекла и установка</p></div><span class="price">от 3 500 ₽</span></li>
+<li class="row"><span class="num" aria-hidden="true">04</span><div><h3 class="name">Ремонт механизма</h3><p class="cap">Поиск неисправности и ремонт</p></div><span class="price">от 5 000 ₽</span></li>
+<li class="row"><span class="num" aria-hidden="true">05</span><div><h3 class="name">Полировка корпуса и браслета</h3><p class="cap">Аккуратная обработка поверхности</p></div><span class="price">от 4 000 ₽</span></li>
+<li class="row"><span class="num" aria-hidden="true">06</span><div><h3 class="name">Чистка механизма</h3><p class="cap">Очистка и проверка деталей</p></div><span class="price">от 8 000 ₽</span></li>
+<li class="row"><span class="num" aria-hidden="true">07</span><div><h3 class="name">Техническое обслуживание</h3><p class="cap">Работы после осмотра</p></div><span class="price">от 12 000 ₽</span></li>
+</ul>
+<p class="note">Цены указаны «от». Точную сумму назовём после осмотра и согласуем до начала работ.</p>
+</div>
+</section>
+
+<section class="dark">
+<div class="wrap why">
+<figure class="shot dk patek-shot reveal"><img src="images/patek-nautilus.avif" width="1200" height="800" alt="Patek Philippe Nautilus 5726/1A-014" loading="lazy" decoding="async"></figure>
+<div class="reveal">
+<p class="tag">Как мы работаем</p>
+<h2>Четыре <em>правила</em></h2>
+<ul class="rows">
+<li class="row"><span class="num" aria-hidden="true">01</span><div><h3 class="name">Учитываем модель</h3><p class="cap">Смотрим на тип механизма, конструкцию и состояние часов.</p></div></li>
+<li class="row"><span class="num" aria-hidden="true">02</span><div><h3 class="name">Согласуем ремонт</h3><p class="cap">Расскажем, что нашли при осмотре. Без вашего согласия работу не начинаем.</p></div></li>
+<li class="row"><span class="num" aria-hidden="true">03</span><div><h3 class="name">Работаем аккуратно</h3><p class="cap">Бережём корпус, стекло и браслет.</p></div></li>
+<li class="row"><span class="num" aria-hidden="true">04</span><div><h3 class="name">Называем гарантию</h3><p class="cap">Срок и условия сообщим до начала ремонта.</p></div></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="alt" id="booking">
+<div class="wrap booking">
+<div class="reveal"><p class="tag">Запись</p><h2>Запишитесь на <em>диагностику</em></h2><p class="copy">Оставьте имя и номер телефона. Мы уточним модель часов и причину обращения, затем предложим время визита.</p></div>
+<form id="form" class="reveal" novalidate>
+<div class="field"><label for="name">Ваше имя</label><input id="name" name="name" type="text" placeholder="Как к вам обращаться" autocomplete="name" required></div>
+<div class="field" id="phoneField"><label for="phone">Номер телефона</label><div class="phone-wrap"><input id="phone" name="phone" type="tel" inputmode="tel" enterkeyhint="send" placeholder="+7 (999) 123-45-67" autocomplete="tel" aria-describedby="phoneHint" required><svg class="valid-mark" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg></div><span class="hint" id="phoneHint">Принимаем российские номера. Можно вставить с 8 или +7.</span></div>
+<button class="btn" type="submit">Записаться на обслуживание</button>
+<div class="ok-box" id="ok" role="status" tabindex="-1"><h3>Заявка принята</h3><p>Это демо-версия: данные никуда не отправляются.</p></div>
+</form>
+</div>
+</section>
+</main>
+
+<footer class="dark" id="contacts">
+<div class="wrap">
+<div class="contacts">
+<div><p class="tag">Контакты</p><h2>Приезжайте<br><em>в мастерскую</em></h2></div>
+<dl class="details">
+<div><dt>Адрес</dt><dd>Москва<br>Адрес уточняется</dd></div>
+<div><dt>Телефон</dt><dd><a href="tel:+70000000000">+7(000)000-00-00</a></dd></div>
+<div><dt>Почта</dt><dd><a href="mailto:test-mail@example.com">test-mail@example.com</a></dd></div>
+<div><dt>Режим работы</dt><dd>Пн-Сб<br>По предварительной записи</dd></div>
+<div><dt>Заявка</dt><dd><a href="#booking">Оставить на сайте</a></dd></div>
+</dl>
+</div>
+<div class="bottom"><span class="brand brand--sm">MONTRE</span><span>© 2026 Montre. Все права защищены.</span></div>
+</div>
+</footer>
+<a class="sticky" id="sticky" href="#booking">Записаться</a>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Mobile menu */
+  const nav = $('nav'), menuBtn = $('menuBtn');
+  const setMenu = open => {
+    nav.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    menuBtn.textContent = open ? 'Закрыть' : 'Меню';
+  };
+  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('click', e => { if (!e.target.closest('.bar')) setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  matchMedia('(min-width: 821px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+  /* Scroll reveal */
+  const items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
+    }), { threshold: .12 });
+    items.forEach(el => io.observe(el));
+  } else items.forEach(el => el.classList.add('on'));
+
+  /* Mobile CTA: visible between the first screen and the form */
+  if ('IntersectionObserver' in window) {
+    const sticky = $('sticky'), seen = { hero: true, form: false };
+    const update = () => sticky.classList.toggle('show', !seen.hero && !seen.form);
+    const watch = (el, key) => new IntersectionObserver(([en]) => { seen[key] = en.isIntersecting; update(); }).observe(el);
+    watch($('hero'), 'hero');
+    watch($('booking'), 'form');
+  }
+
+  /* Form */
+  const form = $('form'), name = $('name'), phone = $('phone'), phoneField = $('phoneField');
+  const format = d => {
+    const l = d.slice(1);
+    let t = '+7';
+    if (l.length) t += ' (' + l.slice(0, 3);
+    if (l.length >= 3) t += ')';
+    if (l.length > 3) t += ' ' + l.slice(3, 6);
+    if (l.length > 6) t += '-' + l.slice(6, 8);
+    if (l.length > 8) t += '-' + l.slice(8, 10);
+    return t;
+  };
+  const normalize = raw => {
+    const d = raw.replace(/\D/g, '');
+    if (!d) return '';
+    return ('7' + (d[0] === '7' || d[0] === '8' ? d.slice(1) : d)).slice(0, 11);
+  };
+  const phoneOk = () => /^\+7 \([2-9]\d{2}\) \d{3}-\d{2}-\d{2}$/.test(phone.value);
+
+  phone.addEventListener('keydown', e => {
+    if (e.key !== 'Backspace' || phone.selectionStart !== phone.selectionEnd) return;
+    let c = phone.selectionStart;
+    while (c > 3 && /\D/.test(phone.value[c - 1])) c--;
+    phone.setSelectionRange(c, c);
+  });
+  phone.addEventListener('input', e => {
+    const raw = phone.value, caret = phone.selectionStart;
+    const lead = /^\s*(\+?7|8)/.test(raw) ? 0 : 1;
+    const digitsBeforeCaret = raw.slice(0, caret).replace(/\D/g, '').length + lead;
+    let d = normalize(raw);
+    if (d === '7' && e.inputType && e.inputType.startsWith('delete')) d = '';
+    phone.value = d ? format(d) : '';
+    if (d) {
+      let pos = 0, seen = 0;
+      while (pos < phone.value.length && seen < digitsBeforeCaret) if (/\d/.test(phone.value[pos++])) seen++;
+      phone.setSelectionRange(pos, pos);
+    }
+    phoneField.classList.toggle('is-valid', phoneOk());
+  });
+  phone.addEventListener('paste', e => {
+    const d = normalize((e.clipboardData || window.clipboardData).getData('text'));
+    if (!d) return;
+    e.preventDefault();
+    phone.value = format(d);
+    phone.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  phone.addEventListener('focus', () => { if (!phone.value) phone.value = '+7 ('; });
+  phone.addEventListener('blur', () => { if (phone.value === '+7 (') phone.value = ''; });
+
+  const checks = [
+    [name, 'Укажите, пожалуйста, имя.', () => name.value.trim().length > 1],
+    [phone, 'Проверьте номер: нужно 10 цифр после +7, код начинается с 2-9.', phoneOk]
+  ];
+  const mark = (input, msg) => {
+    const field = input.closest('.field');
+    let err = field.querySelector('.err');
+    if (!msg) {
+      field.classList.remove('has-error');
+      input.removeAttribute('aria-invalid');
+      if (err) err.remove();
+      return;
+    }
+    if (!err) {
+      err = document.createElement('span');
+      err.className = 'err';
+      err.setAttribute('role', 'alert');
+      field.appendChild(err);
+    }
+    err.textContent = msg;
+    field.classList.add('has-error');
+    input.setAttribute('aria-invalid', 'true');
+  };
+  checks.forEach(([input,, ok]) => input.addEventListener('input', () => { if (ok()) mark(input); }));
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let first = null;
+    checks.forEach(([input, msg, ok]) => {
+      if (ok()) mark(input); else { mark(input, msg); first = first || input; }
+    });
+    if (first) return first.focus();
+    form.classList.add('is-sent');
+    $('ok').focus();
+  });
+})();
+</script>
+</body>
+</html>
